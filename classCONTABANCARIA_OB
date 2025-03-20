@@ -1,0 +1,30 @@
+class ContaBancaria:
+    def __init__(self, titular, saldo=0):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, valor):
+        self.saldo += valor
+        print(f"Depósito de R${valor} realizado. Novo saldo: R${self.saldo}")
+
+    def sacar(self, valor):
+        if self.saldo >= valor:
+            self.saldo -= valor
+            print(f"Saque de R${valor} realizado. Novo saldo: R${self.saldo}")
+        else:
+            print("Saldo insuficiente.")
+
+    def exibir_saldo(self):
+        print(f"Saldo atual da conta de {self.titular}: R${self.saldo}")
+
+# Criando objetos da classe ContaBancaria
+minha_conta = ContaBancaria("Alice", 1000)
+conta_amigo = ContaBancaria("Bob")
+
+# Usando os métodos dos objetos
+minha_conta.depositar(500)
+conta_amigo.depositar(100)
+minha_conta.sacar(200)
+conta_amigo.sacar(150)
+minha_conta.exibir_saldo()
+conta_amigo.exibir_saldo()

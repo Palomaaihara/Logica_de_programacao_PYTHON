@@ -1,0 +1,3 @@
+lista = ["maçã", "banana", "laranja"]
+for i in range(len(lista)):  # Itera sobre os índices da lista
+    print(f"Índice {i}: {lista[i]}")

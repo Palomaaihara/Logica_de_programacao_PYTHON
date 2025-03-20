@@ -1,0 +1,88 @@
+import math
+
+def exibir_menu():
+    print("=========================")
+    print("   CALCULADORA AVANÇADA   ")
+    print("=========================")
+    print("1. Adição")
+    print("2. Subtração")
+    print("3. Multiplicação")
+    print("4. Divisão")
+    print("5. Porcentagem")
+    print("6. Potência")
+    print("7. Raiz Quadrada")
+    print("8. Tabuada")
+    print("0. Sair")
+    print("=========================")
+
+def adicionar(a, b):
+    return a + b
+
+def subtrair(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b == 0:
+        return "Erro: divisão por zero"
+    return a / b
+
+def porcentagem(valor, percentual):
+    return (percentual / 100) * valor
+
+def potencia(base, expoente):
+    return base ** expoente
+
+def raiz_quadrada(numero):
+    if numero < 0:
+        return "Erro: número negativo"
+    return math.sqrt(numero)
+
+def tabuada(numero):
+    print(f"Tabuada do {numero}:")
+    for i in range(1, 11):
+        print(f"{numero} x {i} = {numero * i}")
+
+while True:
+    exibir_menu()
+    opcao = input("Digite a opção desejada: ")
+
+    if opcao == '1':
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        print("Resultado:", adicionar(num1, num2))
+    elif opcao == '2':
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        print("Resultado:", subtrair(num1, num2))
+    elif opcao == '3':
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        print("Resultado:", multiplicar(num1, num2))
+    elif opcao == '4':
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        print("Resultado:", dividir(num1, num2))
+    elif opcao == '5':
+        valor = float(input("Digite o valor: "))
+        percentual = float(input("Digite o percentual: "))
+        print("Resultado:", porcentagem(valor, percentual))
+    elif opcao == '6':
+        base = float(input("Digite a base: "))
+        expoente = float(input("Digite o expoente: "))
+        print("Resultado:", potencia(base, expoente))
+    elif opcao == '7':
+        numero = float(input("Digite o número: "))
+        print("Resultado:", raiz_quadrada(numero))
+    elif opcao == '8':
+        num = int(input("Digite um número para a tabuada: "))
+        tabuada(num)
+    elif opcao == '0':
+        print("Encerrando a calculadora...")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
+
+    input("Pressione Enter para continuar...")

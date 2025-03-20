@@ -1,0 +1,19 @@
+def celsius_para_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+def fahrenheit_para_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
+
+temperatura = float(input("Digite a temperatura: "))
+escala = input("Converter para (C/F): ").upper()
+
+if escala == "C":
+    resultado = fahrenheit_para_celsius(temperatura)
+    print(f"{temperatura}°F = {resultado:.2f}°C")
+elif escala == "F":
+    resultado = celsius_para_fahrenheit(temperatura)
+    print(f"{temperatura}°C = {resultado:.2f}°F")
+else:
+    print("Escala inválida.")

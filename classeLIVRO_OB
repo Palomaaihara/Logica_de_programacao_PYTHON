@@ -1,0 +1,34 @@
+class Livro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+
+    def exibir_informacoes(self):
+        print(f"Título: {self.titulo}, Autor: {self.autor}")
+
+class Biblioteca:
+    def __init__(self):
+        self.livros = []
+
+    def adicionar_livro(self, livro):
+        self.livros.append(livro)
+        print(f"Livro '{livro.titulo}' adicionado à biblioteca.")
+
+    def listar_livros(self):
+        if not self.livros:
+            print("A biblioteca está vazia.")
+        else:
+            print("Livros na biblioteca:")
+            for livro in self.livros:
+                livro.exibir_informacoes()
+
+# Criando objetos das classes Livro e Biblioteca
+livro1 = Livro("Dom Quixote", "Miguel de Cervantes")
+livro2 = Livro("1984", "George Orwell")
+
+biblioteca = Biblioteca()
+
+# Usando os métodos dos objetos
+biblioteca.adicionar_livro(livro1)
+biblioteca.adicionar_livro(livro2)
+biblioteca.listar_livros()

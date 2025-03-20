@@ -1,0 +1,25 @@
+class Carro:
+    def __init__(self, marca, modelo, ano):
+        self.marca = marca
+        self.modelo = modelo
+        self.ano = ano
+        self.velocidade = 0
+
+    def acelerar(self, incremento):
+        self.velocidade += incremento
+        print(f"O {self.marca} {self.modelo} acelerou para {self.velocidade} km/h.")
+
+    def frear(self, decremento):
+        self.velocidade -= decremento
+        if self.velocidade < 0:
+            self.velocidade = 0
+        print(f"O {self.marca} {self.modelo} freou para {self.velocidade} km/h.")
+
+# Criando objetos da classe Carro
+meu_carro = Carro("Toyota", "Corolla", 2022)
+carro_amigo = Carro("Ford", "Mustang", 2021)
+
+# Usando os métodos dos objetos
+meu_carro.acelerar(20)
+carro_amigo.acelerar(50)
+meu_carro.frear(10)

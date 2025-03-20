@@ -1,0 +1,74 @@
+from datetime import datetime
+
+estoque = {}
+
+def exibir_menu():
+    print("=========================")
+    print("     SISTEMA DE ESTOQUE    ")
+    print("=========================")
+    print("1. Adicionar produto")
+    print("2. Remover produto")
+    print("3. Listar estoque")
+    print("4. Listar produtos vencidos")
+    print("0. Sair")
+    print("=========================")
+
+def adicionar_produto(nome, quantidade, data_validade):
+    try:
+        data_validade = datetime.strptime(data_validade, "%d/%m/%Y").date()
+    except ValueError:
+        print("Formato de data inválido. Use DD/MM/AAAA.")
+        return
+
+    if nome in estoque:
+        estoque[nome]["quantidade"] += quantidade
+    else:
+        estoque[nome] = {"quantidade": quantidade, "data_validade": data_validade}
+    print(f"{quantidade} unidades de {nome} adicionadas ao estoque.")
+
+def remover_produto(nome, quantidade):
+    if nome in estoque:
+        if estoque[nome]["quantidade"] >= quantidade:
+            estoque[nome]["quantidade"] -= quantidade
+            print(f"{quantidade} unidades de {nome} removidas do estoque.")
+        else:
+            print(f"Quantidade insuficiente de {nome} no estoque.")
+    else:
+        print(f"{nome} não encontrado no estoque.")
+
+def listar_estoque():
+    print("Estoque:")
+    for nome, produto in estoque.items():
+        print(f"- {nome}: {produto['quantidade']} unidades, validade: {produto['data_validade'].strftime('%d/%m/%Y')}")
+
+def listar_produtos_vencidos():
+    hoje = datetime.now().date()
+    print("Produtos vencidos:")
+    for nome, produto in estoque.items():
+        if produto["data_validade"] < hoje:
+            print(f"- {nome}: {produto['quantidade']} unidades, validade: {produto['data_validade'].strftime('%d/%m/%Y')}")
+
+while True:
+    exibir_menu()
+    opcao = input("Digite a opção desejada: ")
+
+    if opcao == '1':
+        nome = input("Digite o nome do produto: ")
+        quantidade = int(input("Digite a quantidade: "))
+        data_validade = input("Digite a data de validade (DD/MM/AAAA): ")
+        adicionar_produto(nome, quantidade, data_validade)
+    elif opcao == '2':
+        nome = input("Digite o nome do produto: ")
+        quantidade = int(input("Digite a quantidade: "))
+        remover_produto(nome, quantidade)
+    elif opcao == '3':
+        listar_estoque()
+    elif opcao == '4':
+        listar_produtos_vencidos()
+    elif opcao == '0':
+        print("Encerrando o sistema de estoque...")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
+
+    input("Pressione Enter para continuar...")

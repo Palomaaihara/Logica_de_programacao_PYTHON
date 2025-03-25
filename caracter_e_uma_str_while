@@ -1,0 +1,7 @@
+texto = input("Digite uma string: ")
+indice = 0
+tamanho = len(texto)
+
+while indice < tamanho:
+    print(texto[indice])
+    indice += 1

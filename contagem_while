@@ -1,0 +1,11 @@
+# Inicializa a variável que vai controlar o loop
+contador = 1
+
+# O loop while continuará enquanto a condição for verdadeira
+while contador <= 5:
+    # Imprime o valor atual do contador
+    print(contador)
+    # Incrementa o contador em 1 para que o loop avance
+    contador = contador + 1
+
+print("Fim do programa!")

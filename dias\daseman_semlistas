@@ -1,0 +1,53 @@
+segunda_total = 0
+terca_total = 0
+quarta_total = 0
+quinta_total = 0
+sexta_total = 0
+sabado_total = 0 
+
+print("\n*** Sistema de Registro de Vendas ***\n")
+print("\n--- Vendas de Segunda-feira ---")
+num_vendas_segunda = int(input("Quantas vendas foram realizadas na Segunda-feira? "))
+for i in range(1, num_vendas_segunda + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    segunda_total += valor_venda
+print("-------------------------------")
+
+print("\n--- Vendas de Terça-feira ---")
+num_vendas_terca = int(input("Quantas vendas foram realizadas na Terça-feira? "))
+for i in range(1, num_vendas_terca + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    terca_total += valor_venda
+print("-------------------------------")
+
+print("\n--- Vendas de Quarta-feira ---")
+num_vendas_quarta = int(input("Quantas vendas foram realizadas na Quarta-feira? "))
+for i in range(1, num_vendas_quarta + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    quarta_total += valor_venda
+print("-------------------------------")
+
+print("\n--- Vendas de Quinta-feira ---")
+num_vendas_quinta = int(input("Quantas vendas foram realizadas na Quinta-feira? "))
+for i in range(1, num_vendas_quinta + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    quinta_total += valor_venda
+print("-------------------------------")
+
+print("\n--- Vendas de Sexta-feira ---")
+num_vendas_sexta = int(input("Quantas vendas foram realizadas na Sexta-feira? "))
+for i in range(1, num_vendas_sexta + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    sexta_total += valor_venda
+print("-------------------------------")
+
+print("\n--- Vendas de Sábado ---")
+num_vendas_sabado = int(input("Quantas vendas foram realizadas no Sábado? "))
+for i in range(1, num_vendas_sabado + 1):
+    valor_venda = float(input(f"Digite o valor da {i}ª venda: R$ "))
+    sabado_total += valor_venda
+print("-------------------------------")
+
+total_geral = segunda_total + terca_total + quarta_total + quinta_total + sexta_total + sabado_total
+print(f"\nFORAM {num_vendas_segunda + num_vendas_terca + num_vendas_quarta + num_vendas_quinta + num_vendas_sexta + num_vendas_sabado} VENDAS NESSA SEMANA E O SEU VALOR TOTAL FOI DE R$ {total_geral}.")
+print("-------------------------------")

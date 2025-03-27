@@ -1,20 +1,29 @@
 
 import math
+historico = []
 
 def menu_inicial():
     print("******************** CALCULADORA ********************")
-    print("* 1. Adição                                         *")
-    print("* 2. Subtração                                      *")
-    print("* 3. Multiplicação                                  *")
-    print("* 4. Divisão                                        *")
-    print("* 5. Porcentagem                                    *")
-    print("* 6. Potenciação                                    *")
-    print("* 7. Radiciação                                     *")
-    print("* 8. Fatorial                                       *")
-    print("* 9. Histórico de operações                         *")
-    print("* 0. Sair                                           *")
+    print("* 1.  Adição                                        *")
+    print("* 2.  Subtração                                     *")
+    print("* 3.  Multiplicação                                 *")
+    print("* 4.  Divisão                                       *")
+    print("* 5.  Porcentagem                                   *")
+    print("* 6.  Potenciação                                   *")
+    print("* 7.  Radiciação                                    *")
+    print("* 8.  Fatorial                                      *")
+    print("* 9.  Logaritmo                                     *")
+    print("* 10. Funções Trigonométricas                       *")
+    print("* 11. Conversão de Unidades                         *")
+    print("* 12. Cálculo do IMC                                *")
+    print("* 13. Equação do 2º Grau                            *")
+    print("* 14. Cálculo de Juros                              *")
+    print("* 15. Conversão de Moedas                           *")
+    print("* 16. Média, Moda e Mediana                         *")
+    print("* 17. Números Binários                              *")
+    print("* 18. Histórico de operações                        *")
+    print("* 0.  Sair                                          *")
     print("*****************************************************")
-
 
 while True:
         menu_inicial()
@@ -22,74 +31,282 @@ while True:
         if operacao == 0:
             print("Encerrando a calculadora....Até logo!")
             break
-        elif operacao in (1, 2, 3, 4, 5, 6, 7):
-            try:
+        elif operacao == 18:
+            if not historico:
+                print("Nenhuma operação realizada ainda.")
+            else:
+                 print("\nHistórico de operações:")
+                 for i, operacao in enumerate(historico, start=1):
+                     print(f"{i}. {operacao}")
+        elif operacao in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17):
                 if operacao == 1:
                     num1 = float(input("Digite o primeiro número: "))
                     num2 = float(input("Digite o segundo número: "))
                     resultado = num1 + num2
                     print(f"\n{num1} + {num2} = {resultado}")
+                    historico.append(f"\n_-_-_-_ ADIÇÃO _-_-_-_\n{num1} + {num2} = {resultado}\n")
                 elif operacao == 2:
                     num1 = float(input("Digite o primeiro número: "))
                     num2 = float(input("Digite o segundo número: "))
                     resultado = num1 - num2
                     print(f"\n{num1} - {num2} = {resultado}")
+                    historico.append(f"\n_-_-_-_ SUBTRAÇÃO _-_-_-_\n{num1} - {num2} = {resultado}\n")
                 elif operacao == 3:
                     num1 = float(input("Digite o primeiro número: "))
                     num2 = float(input("Digite o segundo número: "))
                     resultado = num1 * num2
-                    print(f"\n{num1} * {num2} = {resultado}")
+                    print(f"\n{num1} * {num2} = {resultado}")     
+                    historico.append(f"\n_-_-_-_ MULTIPLICAÇÃO _-_-_-_\n{num1} * {num2} = {resultado}\n")
                 elif operacao == 4:
                     num1 = float(input("Digite o primeiro número(dividendo): "))
                     num2 = float(input("Digite o segundo número(divisor): "))
                     resultado = num1 / num2
+                    historico.append(f"\n_-_-_-_ DIVISÃO _-_-_-_\n")
                     if num1 == 0:
                        print(f"\n0 dividido por {num2} = 0")
+                       historico.append(f"\n{num1} / {num2} = {resultado}")
                     elif num2 == 0:
                         print("\nNão é possível dividir por zero!")
+                        historico.append(f"{num1} / {num2} = ?, resultado não definido")
                     else:
                         print(f"\n{num1} / {num2} = {resultado}")
+                        historico.append(f"{num1} / {num2} = {resultado}")
                 elif operacao == 5:
                     num1 = float(input("Digite o valor da porcentagem:"))
                     num2 = float(input("Digite o valor do número:"))
                     resultado = (num1 / 100) * num2
+                    historico.append(f"\n_-_-_-_ PORCENTAGEM _-_-_-_\n")
                     print (f"\n{num1}% de {num2} = {resultado}")
                     print(f"Somando a porcentagem: {num2} + {num1}% = {resultado + num2}")
                     print(f"Subtraindo a porcentagem: {num2} - {num1}% = {num2 - resultado}")
                     print(f"Multiplicando a porcentagem: {num2} * {num1}%(do {num2}) = {num2 * resultado}")
                     print(f"Dividindo a porcentagem: {num2} / {num1}% = {num2 / resultado}")
+                    historico.append(f"\n{num1}% de {num2} = {resultado}\nSomando a porcentagem: {num2} + {num1}% = {resultado + num2}\nSubtraindo a porcentagem: {num2} - {num1}% = {num2 - resultado}\nMultiplicando a porcentagem: {num2} * {num1}%(do {num2}) = {num2 * resultado}\nDividindo a porcentagem: {num2} / {num1}% = {num2 / resultado}\n")
                 elif operacao == 6:
                     num1 = float(input("Digite o número da base: "))
                     num2 = float(input("Digite o número do expoente: "))
                     resultado = num1 ** num2
                     print(f"\n{num1} elevado a {num2} = {resultado}")
+                    historico.append(f"\n_-_-_-_ POTENCIAÇÃO _-_-_-_\n{num1} ^ {num2} = {resultado}\n")
                 elif operacao == 7:
                     num1 = float(input("Digite o radicando: "))
                     num2 = float(input("Digite o índice: "))
+                    historico.append(f"\n_-_-_-_ RADICIAÇÃO _-_-_-_\n ")
                     if num1 < 0 and num2 % 2 == 0:
                         print("\nERROR: Quando o índice é par e o radicando é negativo, o resultado não é um número real!")
+                        historico.append(f"Raiz de {num1} com índice {num2} = ?, resultado não definido")
                     elif num1 < 0 and num2 % 2 != 0:
                        resultado = -math.pow(num1, 1/num2)
                        print(f"\nA raiz do índice {num2} de {num1} é {resultado}")
+                       historico.append(f"Raiz de {num1} com índice {num2} = {resultado}")
                     else:
                         resultado = math.pow(num1, 1/num2)
                         print(f"\nA raiz do índice {num2} de {num1} é {resultado}")
+                        historico.append(f"Raiz de {num1} com índice {num2} = {resultado}")
                 elif operacao == 8:
                     num1 = int(input("Digite um número inteiro para calcular o fatorial:"))
+                    historico.append(f"\n_-_-_-_ FATORIAL _-_-_-_\n")
                     if num1 < 0:
                         print("Não existe fatorial de número negativo!")
                     elif num1 == 0:
                         print("O fatorial de 0 é: 1")
+                        historico.append(f"Fatorial de {num1} = 1")
                     else:
                         fatorial = 1
                         for i in range(1, num1 + 1):
                             fatorial *= i
                         print(f"O fatorial de {num1} é: {fatorial}")
+                        historico.append(f"Fatorial de {num1} = {fatorial}\n")
                 elif operacao == 9:
-                    
-                    
-            except ValueError:
-                print("Erro: Entrada inválida. Por favor, digite números válidos.")
-        else:
-            print("Opção inválida. Por favor, escolha uma opção válida do menu.")
+                    num1 = float(input("Digite o número para calcular o logaritmo: "))
+                    num2 = float(input("Digite a base do logaritmo: "))
+                    historico.append(f"\n_-_-_-_ LOGARITMO _-_-_-_\n")
+                    if num1 <= 0 or num2 <= 0 or num2 == 1:
+                        print("Erro: O logaritmo só é definido para números positivos e base diferente de 1.")
+                        historico.append(f"Logaritmo de {num1} na base {num2} = ?, resultado não definido")
+                    else:
+                        resultado = math.log(num1, num2)
+                        print(f"\nO logaritmo de {num1} na base {num2} é: {resultado}")
+                        historico.append(f"Logaritmo de {num1} na base {num2} = {resultado}\n")
+                elif operacao == 10:
+                    angulo = float(input("Digite o ângulo em graus: "))
+                    historico.append(f"\n_-_-_-_ FUNÇÕES TRIGONOMÉTRICAS _-_-_-_\n")
+                    seno = math.sin(math.radians(angulo))
+                    cosseno = math.cos(math.radians(angulo))
+                    tangente = math.tan(math.radians(angulo))
+                    print(f"\nSeno de {angulo}° = {seno}")
+                    print(f"Cosseno de {angulo}° = {cosseno}")
+                    print(f"Tangente de {angulo}° = {tangente}")
+                    historico.append(f"Seno de {angulo}° = {seno}\nCosseno de {angulo}° = {cosseno}\nTangente de {angulo}° = {tangente}\n")
+                elif operacao == 11:
+                    print("\nEscolha a conversão desejada:")
+                    print("1. Celsius para Fahrenheit")
+                    print("2. Fahrenheit para Celsius")
+                    print("3. Celsius para Kelvin")
+                    print("4. Kelvin para Celsius")
+                    print("5. Fahrenheit para Kelvin")
+                    print("6. Kelvin para Fahrenheit")
+                    opcao = int(input("Digite a opção desejada: "))
+                    historico.append(f"\n_-_-_-_ CONVERSÃO DE TEMPERATURA _-_-_-_")
+                    if opcao == 1:
+                        celsius = float(input("Digite a temperatura em Celsius: "))
+                        fahrenheit = (celsius * 9/5) + 32
+                        print(f"\n{celsius}°C = {fahrenheit}°F")
+                        historico.append(f"Celsius para Fahrenheit: {celsius}°C = {fahrenheit}°F\n")
+                    elif opcao == 2:
+                        fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+                        celsius = (fahrenheit - 32) * 5/9
+                        print(f"\n{fahrenheit}°F = {celsius}°C")
+                        historico.append(f"Fahrenheit para Celsius: {fahrenheit}°F = {celsius}°C\n")
+                    elif opcao == 3:
+                        celsius = float(input("Digite a temperatura em Celsius: "))
+                        kelvin = celsius + 273.15
+                        print(f"\n{celsius}°C = {kelvin}K")
+                        historico.append(f"Celsius para Kelvin: {celsius}°C = {kelvin}K\n")
+                    elif opcao == 4:
+                        kelvin = float(input("Digite a temperatura em Kelvin: "))
+                        celsius = kelvin - 273.15
+                        print(f"\n{kelvin}K = {celsius}°C")
+                        historico.append(f"Kelvin para Celsius: {kelvin}K = {celsius}°C\n")
+                    elif opcao == 5:
+                        fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+                        kelvin = (fahrenheit - 32) * 5/9 + 273.15
+                        print(f"\n{fahrenheit}°F = {kelvin}K")
+                        historico.append(f"Fahrenheit para Kelvin: {fahrenheit}°F = {kelvin}K\n")
+                    elif opcao == 6:
+                        kelvin = float(input("Digite a temperatura em Kelvin: "))
+                        fahrenheit = (kelvin - 273.15) * 9/5 + 32
+                        print(f"\n{kelvin}K = {fahrenheit}°F")
+                        historico.append(f"Kelvin para Fahrenheit: {kelvin}K = {fahrenheit}°F\n")
+                    else:
+                        print("\nOpção inválida. Por favor, escolha uma opção válida.")
+                elif operacao == 12:
+                    peso = float(input("Digite seu peso em kg: "))
+                    altura = float(input("Digite sua altura em metros: "))
+                    imc = peso / (altura ** 2)
+                    print(f"\nSeu IMC é: {imc:.2f}")
+                    historico.append(f"_-_-_-_ ÍNDICE DE MASSA CORPORAL _-_-_-_IMC: {imc:.2f}\n")
+                elif operacao == 13:
+                    a = float(input("Digite o coeficiente a: "))
+                    b = float(input("Digite o coeficiente b: "))
+                    c = float(input("Digite o coeficiente c: "))
+                    delta = b ** 2 - 4 * a * c
+                    historico.append(f"\n_-_-_-_ EQUAÇÃO DO 2º GRAU _-_-_-_\n")
+                    if delta < 0:
+                        print("\nNão existem raízes reais.")
+                        historico.append(f"Equação do 2º grau: Não existem raízes reais.\n")
+                    elif delta == 0:
+                        x = -b / (2 * a)
+                        print(f"\nA raiz dupla é: {x}")
+                        historico.append(f"Equação do 2º grau: A raiz dupla é: {x}\n")
+                    else:
+                        x1 = (-b + math.sqrt(delta)) / (2 * a)
+                        x2 = (-b - math.sqrt(delta)) / (2 * a)
+                        print(f"\nAs raízes são: {x1} e {x2}")
+                        historico.append(f"Equação do 2º grau: As raízes são: {x1} e {x2}\n")
+                elif operacao == 14:
+                    print("\nEscolha o tipo de juros:")
+                    print("1. Juros Simples")
+                    print("2. Juros Compostos")
+                    tipo_juros = int(input("Digite a opção desejada: "))
+                    historico.append(f"\n_-_-_-_ CÁLCULO DE JUROS _-_-_-_\n")
+                    if tipo_juros == 1:
+                        capital = float(input("Digite o capital inicial: "))
+                        taxa = float(input("Digite a taxa de juros (em %): "))
+                        tempo = float(input("Digite o tempo (em anos): "))
+                        juros_simples = capital * (taxa / 100) * tempo
+                        montante = capital + juros_simples
+                        print(f"\nO montante total é: {montante}")
+                        historico.append(f"Juros Simples: Montante total = {montante}\n")
+                    elif tipo_juros == 2:
+                        capital = float(input("Digite o capital inicial: "))
+                        taxa = float(input("Digite a taxa de juros (em %): "))
+                        tempo = float(input("Digite o tempo (em anos): "))
+                        montante = capital * ((1 + (taxa / 100)) ** tempo)
+                        print(f"\nO montante total é: {montante}")
+                        historico.append(f"Juros Compostos: Montante total = {montante}\n")
+                    else:
+                        print("\nOpção inválida. Por favor, escolha uma opção válida.")
+                elif operacao == 15:
+                    print("\nEscolha a conversão desejada:")
+                    print("1. Real para Dólar")
+                    print("2. Dólar para Real")
+                    print("3. Real para Euro")
+                    print("4. Euro para Real")
+                    print("5. Dólar para Euro")
+                    print("6. Euro para Dólar")
+                    opcao = int(input("Digite a opção desejada: "))
+                    historico.append(f"\n_-_-_-_ CONVERSÃO DE MOEDAS _-_-_-_\n")
+                    if opcao == 1:
+                        valor_real = float(input("Digite o valor em Reais: "))
+                        valor_dolar = valor_real / 5.25
+                        print(f"\n{valor_real} R$ = {valor_dolar:.2f} $")
+                        historico.append(f"Conversão: {valor_real} R$ = {valor_dolar:.2f} $\n")
+                    elif opcao == 2:
+                        valor_dolar = float(input("Digite o valor em Dólares: "))
+                        valor_real = valor_dolar * 5.25
+                        print(f"\n{valor_dolar} $ = {valor_real:.2f} R$")
+                        historico.append(f"Conversão: {valor_dolar} $ = {valor_real:.2f} R$\n")
+                    elif opcao == 3:
+                        valor_real = float(input("Digite o valor em Reais: "))
+                        valor_euro = valor_real / 6.00
+                        print(f"\n{valor_real} R$ = {valor_euro:.2f} €")
+                        historico.append(f"Conversão: {valor_real} R$ = {valor_euro:.2f} €\n")
+                    elif opcao == 4:
+                        valor_euro = float(input("Digite o valor em Euros: "))
+                        valor_real = valor_euro * 6.00
+                        print(f"\n{valor_euro} € = {valor_real:.2f} R$")
+                        historico.append(f"Conversão: {valor_euro} € = {valor_real:.2f} R$\n")
+                    elif opcao == 5:
+                        valor_dolar = float(input("Digite o valor em Dólares: "))
+                        valor_euro = valor_dolar / 1.10
+                        print(f"\n{valor_dolar} $ = {valor_euro:.2f} €")
+                        historico.append(f"Conversão: {valor_dolar} $ = {valor_euro:.2f} €\n")
+                    elif opcao == 6:
+                        valor_euro = float(input("Digite o valor em Euros: "))
+                        valor_dolar = valor_euro * 1.10
+                        print(f"\n{valor_euro} € = {valor_dolar:.2f} $")
+                        historico.append(f"Conversão: {valor_euro} € = {valor_dolar:.2f} $\n")
+                    else:
+                        print("\nOpção inválida. Por favor, escolha uma opção válida.")
+                elif operacao == 16:
+                    print("\nEscolha a operação desejada:")
+                    print("1. Média")
+                    print("2. Moda")
+                    print("3. Mediana")
+                    opcao = int(input("Digite a opção desejada: "))
+                    historico.append(f"\n_-_-_-_ MÉDIA, MODA E MEDIANA _-_-_-_\n")
+                    if opcao == 1:
+                        numeros = list(map(float, input("Digite os números separados por espaço: ").split()))
+                        media = sum(numeros) / len(numeros)
+                        print(f"\nA média é: {media}")
+                        historico.append(f"Média: {media}\n")
+                    elif opcao == 2:
+                        numeros = list(map(float, input("Digite os números separados por espaço: ").split()))
+                        moda = max(set(numeros), key=numeros.count)
+                        print(f"\nA moda é: {moda}")
+                        historico.append(f"Moda: {moda}\n")
+                    elif opcao == 3:
+                        numeros = sorted(list(map(float, input("Digite os números separados por espaço: ").split())))
+                        n = len(numeros)
+                        if n % 2 == 0:
+                            mediana = (numeros[n//2 - 1] + numeros[n//2]) / 2
+                        else:
+                            mediana = numeros[n//2]
+                        print(f"\nA mediana é: {mediana}")
+                        historico.append(f"Mediana: {mediana}\n")
+                    else:
+                        print("\nOpção inválida. Por favor, escolha uma opção válida.")
+                elif operacao == 17:
+                    numero = int(input("Digite um número inteiro: "))
+                    binario = bin(numero)[2:]
+                    octal = oct(numero)[2:]
+                    hexadecimal = hex(numero)[2:]
+                    historico.append(f"\n_-_-_-_ CONVERSÃO DE NÚMEROS _-_-_-_\n")
+                    print(f"\nNúmero em binário: {binario}")
+                    print(f"Número em octal: {octal}")
+                    print(f"Número em hexadecimal: {hexadecimal}")
+                    historico.append(f"Número {numero} em binário: {binario}\nNúmero {numero} em octal: {octal}\nNúmero {numero} em hexadecimal: {hexadecimal}\n")
+                else:
+                    print("\nOpção inválida. Por favor, escolha uma opção válida do menu.")
                        
